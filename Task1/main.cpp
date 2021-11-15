@@ -10,18 +10,16 @@ int main()
     // ***** MODIFY THE CODE BELOW HERE *****
 
     // 1. Write a for-loop to count from 1 to 100 in steps of 10 - print the results to the serial terminal
-   int count = 1;
-    while (count <=100)
-    { printf("count = %d\n", count);
-    wait_us(500000);
-    count = count + 10;}
+ for (unsigned int n=100; n>=10; n=n-5){
+     prinf("count =%d\n",n)
+     wait_us(500000)
+ }
    
     // 2. Write a for-loop to count from 100 down to 10 in steps of 5 - print the results to the serial terminal
-    count = 100;
-    while (count >=0)
-    { printf("count = %d\n", count);
-    wait_us(500000);
-    count = count - 5;}
+     for (unsigned int n=100; n>=10; n=n-5){
+     prinf("count =%d\n",n)
+     wait_us(500000)
+ }
     
     // 3. Write some code to demonstrate nested for-loops (one loop within another)
     for (unsigned int t=1; t<=20; t=t+2){
@@ -39,3 +37,4 @@ int main()
 
     }
 }
+ 
