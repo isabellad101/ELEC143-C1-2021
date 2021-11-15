@@ -39,8 +39,11 @@ int main()
         // For full marks, debounce the switches and use flow control structures and arrays to avoid deep nesting of code
 
         // ***** MODIFY THE CODE BELOW HERE *****
+    
 
-        
+
+
+       
 
         // ***** MODIFY THE CODE ABOVE HERE *****
     }
