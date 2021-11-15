@@ -23,7 +23,7 @@ int main()
     display.printf("n=%d\n",n);
     n=n+5;
     wait_us(1000000); 
-    }while (n<50);
+    }while (n<=50);
     // ***** MODIFY THE CODE ABOVE HERE *****
     leds = 7;
 
