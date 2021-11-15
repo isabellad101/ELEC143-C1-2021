@@ -10,9 +10,17 @@ int main()
 {
 
     //1. Flash the red led 3 times
-
+    int count=0; 
+    traffic=0b000;
+    while (count <3){
+    traffic = 0b0000000000000100;
+    wait_us(500000);
+    traffic = 0b0000000000000000;
+    wait_us(500000);
+    count = count + 1;
+    }
     //2. Using the bitwise OR and AND operators (|,&), flash the green LED on and off 3 times
-
+    
     //3. Using the bitwise XOR operator (^), flash the yellow LED on and off 3 times
 
     //4. Using only bitwise operators, display the traffic light sequence red, red+yellow, green, yellow. Leave a 1s gap between each
