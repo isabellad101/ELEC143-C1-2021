@@ -48,7 +48,7 @@ leds = 0b000;
 wait_us(125000);
 count = count + 1;
  }
-    //5. Using a while-loop, count from -50 downto +50 in steps of -10 - print the results on row 1 of the LCD screen every 0.5 second 
+    //5. Using a while-loop, count from 50 downto -50 in steps of 10 - print the results on row 1 of the LCD screen every 0.5 second 
 count = 50;
 
  
