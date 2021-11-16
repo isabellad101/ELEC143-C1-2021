@@ -39,8 +39,13 @@ int main()
         // For full marks, debounce the switches and use flow control structures and arrays to avoid deep nesting of code
 
         // ***** MODIFY THE CODE BELOW HERE *****
+        BusIn buttons(USER_BUTTON,BTN1_PIN,BTN2_PIN,BTN3_PIN,BTN4_PIN);
+        buttons[2].mode(PullDown);
+        buttons[3].mode(PullDown);
     
 
+        uint32_t b = buttons;
+        printf("%u\n", b);
 
 
        
