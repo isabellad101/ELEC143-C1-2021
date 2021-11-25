@@ -43,13 +43,13 @@ int main()
     count=0; 
     traffic=0b0000000000000000;
     traffic = traffic | 0b000000000000100;
-    wait_us(500000);
+    wait_us(1000000);
     traffic = traffic | 0b000000000001100;
-    wait_us(500000);
+    wait_us(1000000);
     traffic = traffic ^ 0b000000001001100;
-    wait_us(500000);
+    wait_us(1000000);
     traffic = traffic ^ 0b000000001001000;
-    wait_us(500000);
+    wait_us(1000000);
 
     while (true){
 
