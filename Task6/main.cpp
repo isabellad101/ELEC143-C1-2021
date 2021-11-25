@@ -40,7 +40,98 @@ int main()
         // For full marks, debounce the switches and use flow control structures and arrays to avoid deep nesting of code
 
         // ***** MODIFY THE CODE BELOW HERE *****
-     
+     int sw1State = 0;
+        sw1State = SW1;
+        int sw2State = 0;
+        sw2State = SW2;
+        int sw3State = 0;
+        sw3State = SW3;
+        int sw4State = 0;
+        sw4State = SW4;
+        int sw5State = 0;
+        sw5State = SW5;
+        sequence[]={(sw1State & sw2State),(sw5State),(sw4State),(sw2State & sw3State)}
+        wait_us(500000);
+        while(sw1StateC = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
+        }
+        wait_us(500000);
+
+        //sw1&sw2
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
+            if(sw1State = 1 && sw2State = 1 && sw3State = 0 && sw4State = 0 && sw5State = 0){
+                sequence[1] = 1;
+            }
+        }
+        wait_us(500000);
+
+        //debounce
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
+        }
+        wait_us(500000);
+
+        //sw5
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
+            if(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 1){
+                sequence[2]=1;
+            }
+        }
+
+        //debounce
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
+        }
+        wait_us(500000);
+
+        //sw4
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
+            if(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 1 && sw5State = 0){
+                sequence[3]=1;
+            }
+        }
+
+        //debounce
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
+        }
+        wait_us(500000);
+
+        //sw2&sw3
+        wait_us(500000);
+        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
+            if(sw1State = 0 && sw2State = 1 && sw3State = 1 && sw4State = 0 && sw5State = 0){
+                sequence[4]=1;
+            }
+        }
+
+         //debounce
+        wait_us(500000);
+        while(sw1State = 1 && sw2State = 1 && sw3State = 1 && sw4State = 1 && sw5State = 1){
+        }
+        wait_us(500000);
+
+        for(int n = 0 ; n<4 ; n ++){
+            total += sequence[n];
+        }
+        if(totsl == 4){
+            for(int t = 0 ; t <= 2 ; t++){
+                leds[2] = 1;
+                wait_us(50000000);
+                leds[2] = 0;
+                wait_us(50000000);
+            }
+        }
+        else{
+            leds[0] = 1;
+            alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
+            alarm.rest();
+            wait_us(50000000);
+
+        }
+
    
     
         // ***** MODIFY THE CODE ABOVE HERE *****
