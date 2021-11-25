@@ -23,7 +23,7 @@ int main()
         leds = 0;
 
         //Beep
-       alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
+        alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
         wait_us(250000);
         alarm.rest();
 
@@ -40,10 +40,46 @@ int main()
         // For full marks, debounce the switches and use flow control structures and arrays to avoid deep nesting of code
 
         // ***** MODIFY THE CODE BELOW HERE *****
-     
+      int sw1State = 0;
+      sw1State = SW1;
+      int sw2State = 0;
+      sw2State = SW2;
+      int sw3State= 0;
+       sw3State = SW3;
+      int sw4State = 0;
+       sw4State = SW4;
+      int sw5State = 0;
+      sw5State = SW5;
+      int count = 0;
+      int combinations = 0;
+
    
-    
-        // ***** MODIFY THE CODE ABOVE HERE *****
+    while(1){
+        sw1State = SW1;
+        sw2State = SW2;
+        sw3State = SW3;
+        sw4State = SW4;
+        sw5State = SW5;
+    while( sw1State==0 && sw2State==0 && sw3State == 0 && sw4State == 0 && sw5State ==0){
+
+    }
+      //sw1&sw2
+      if(sw1State==1 && sw2State==1 && sw3State == 0 && sw4State == 0 && sw5State ==0){
+          wait_us(5000000);
+          count ++;
+          combinations ++;
+          
+
+      }
+
+
+
+
+       
+       
+ 
+
+       // ***** MODIFY THE CODE ABOVE HERE *****
     }
 }
 
