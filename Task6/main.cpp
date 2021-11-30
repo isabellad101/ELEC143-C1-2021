@@ -16,6 +16,26 @@ BusOut leds(TRAF_RED1_PIN, TRAF_YEL1_PIN, TRAF_GRN1_PIN);
 //Use this to sound an error
 Buzzer alarm;
 
+void switchCase(int presses, int* button) {
+    switch(presses) {
+        case 1:
+            button[0] = 1;
+        break;
+
+        case 2:
+            button[1] = 2;
+        break;
+
+        case 3:
+            button[2] = 3;
+        break;
+
+        case 4: 
+            button[3] = 4;
+        break;
+        }
+}
+
 int main()
 {
     while (true)
@@ -28,7 +48,11 @@ int main()
         alarm.rest();
 
         //Wait for the blue button using a while loop
+        int delay = 500000;
         while (SW1==0);
+        wait_us(delay);
+        leds = 4;
+
 
         
         // For full marks, debounce the switches with suitable delays
@@ -40,101 +64,62 @@ int main()
         // For full marks, debounce the switches and use flow control structures and arrays to avoid deep nesting of code
 
         // ***** MODIFY THE CODE BELOW HERE *****
+        int timeDelay = 400000;
+        int buttons;
+        int output;
 
-     int sw1State = 0;
-        sw1State = SW1;
-        int sw2State = 0;
-        sw2State = SW2;
-        int sw3State = 0;
-        sw3State = SW3;
-        int sw4State = 0;
-        sw4State = SW4;
-        int sw5State = 0;
-        sw5State = SW5;
-        sequence[]={(sw1State & sw2State),(sw5State),(sw4State),(sw2State & sw3State)}
-        wait_us(500000);
-        while(sw1StateC = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
+        int input[4];
+        int correctSequence[4] = {1 , 2, 3, 4};
+
+        for(int buttonCount = 0; buttonCount < 4; buttonCount ++, wait_us(timeDelay)){
+            while(SW1 == 0 && SW2 == 0 && SW3 == 0 && SW4 == 0 && SW5 == 0){}
+            wait_us(timeDelay);
+            if (SW1 == 1 & SW2 == 1){ // sw1 and sw2 pressed ande released
+                buttons = 1;
+                leds = 1; // test led 1 should light 
+                switchCase(buttons, input); // goes to switchcase function and carries the two variables
+            }
+            else if(SW5 == 1){ // sw 5 presses and released
+                buttons = 2;
+                leds = 2;// test led 2 should light 
+                switchCase(buttons, input); // goes to switchcase function and carries the two variables
+            }
+            else if(SW4 == 1){ // sw4 pressed and released 
+                buttons = 3;
+                leds = 3;// tests led 3 should light 
+                switchCase(buttons, input); // goes to switchcase function and carries the two variables
+            }
+            else if(SW2 == 1 && SW3 == 1){  // sw2 and sw3 pressed and released
+                buttons = 4;
+                leds = 4; //test led 4 should light 
+                switchCase(buttons, input); // goes to switchcase function and carries the two variables
+            }
+            
         }
-        wait_us(500000);
+        for(int count = 0; count < 4; count ++ ){
+            if(input[count] == correctSequence[count]){
+                output ++;
+            }
+            else{}
+        }
+        // if sequence is correct light led 4 up for 5 seconds 
+        if(output == 4){
+            for(int count = 0; count < 3; count ++){
+                leds = 4;
+                wait_us(delay);
+                leds = 0;
+                wait_us(delay);
 
-        //sw1&sw2
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
-            if(sw1State = 1 && sw2State = 1 && sw3State = 0 && sw4State = 0 && sw5State = 0){
-                sequence[1] = 1;
             }
         }
-        wait_us(500000);
-
-        //debounce
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
-        }
-        wait_us(500000);
-
-        //sw5
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
-            if(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 1){
-                sequence[2]=1;
-            }
-        }
-
-        //debounce
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
-        }
-        wait_us(500000);
-
-        //sw4
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
-            if(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 1 && sw5State = 0){
-                sequence[3]=1;
-            }
-        }
-
-        //debounce
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = &&){
-        }
-        wait_us(500000);
-
-        //sw2&sw3
-        wait_us(500000);
-        while(sw1State = 0 && sw2State = 0 && sw3State = 0 && sw4State = 0 && sw5State = 0){
-            if(sw1State = 0 && sw2State = 1 && sw3State = 1 && sw4State = 0 && sw5State = 0){
-                sequence[4]=1;
-            }
-        }
-
-         //debounce
-        wait_us(500000);
-        while(sw1State = 1 && sw2State = 1 && sw3State = 1 && sw4State = 1 && sw5State = 1){
-        }
-        wait_us(500000);
-
-        for(int n = 0 ; n<4 ; n ++){
-            total += sequence[n];
-        }
-        if(totsl == 4){
-            for(int t = 0 ; t <= 2 ; t++){
-                leds[2] = 1;
-                wait_us(50000000);
-                leds[2] = 0;
-                wait_us(50000000);
-            }
-        }
+        // wrong code playing the buzzer for 5 seconds 
         else{
-            leds[0] = 1;
-            alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
+            leds = !1; // toggle led 1 
+             alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
+            wait_us(delay);
             alarm.rest();
-            wait_us(50000000);
-
         }
-
-
-       
+    
        
  
 
