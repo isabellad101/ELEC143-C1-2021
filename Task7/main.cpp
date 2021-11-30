@@ -117,19 +117,20 @@ int main()
         // 1. Write a loop to play the tune in the array `notes`
         //    You may recognise the tune :)
         //    Use player.playTone followed by a player.rest() to get the right duration of note as shown above
-    wait_us(500000) ;
-    int
-    for(int count = 0; count < 51; count ++){
-        player.playTone("[count]", Buzzer::MIDDLE_OCTAVE);
-        wait_us(QUAVER*1000);
-        player.rest();
-    }
-
-
-
-        
+        wait_us(500000) ;
+        for(int count = 0; count < 51; count ++){ // 51 notes in the errays
+            player.playTone(notes[count].note, notes[count].octave);
+            wait_us(notes[count].time_ms * 1000); // plays not for the set amount of time
+            player.rest(); // buzzer stops
+        }
         // 2. Write a nested loop to play the tune twice. Avoid replicating any code where possible.
-        
+        for(int loop2 = 0; loop2 < 2; loop2 ++){ //nested loop to play the tune twice 
+            for(int count = 0; count < 51; count ++){ // 51 notes in the errays
+                player.playTone(notes[count].note, notes[count].octave);
+                wait_us(notes[count].time_ms * 1000); // plays not for the set amount of time
+                player.rest(); // buzzer stops
+            }
+        }
         // ***** MODIFY THE CODE ABOVE HERE *****
         
     }
