@@ -26,7 +26,12 @@ void displayArray(int rows, int cols, double *Array)
 }
 
 // ***** For (1) WRITE YOUR ARRAY Y HERE *****
-
+double Y[4][4] = {
+    { 0 , 0 , 0 , 0},
+    { 0 , 0 , 0 , 0},
+    { 0 , 0 , 0 , 0},
+    { 0 , 0 , 0 , 0}
+};
 // ***** For (3) WRITE YOUR FUNCTION HERE *****
 
 // *****  END YOUR FUNCTION HERE  *****
