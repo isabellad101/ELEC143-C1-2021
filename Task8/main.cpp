@@ -26,12 +26,7 @@ void displayArray(int rows, int cols, double *Array)
 }
 
 // ***** For (1) WRITE YOUR ARRAY Y HERE *****
-double Y[4][4] = {
-    { 0 , 0 , 0 , 0},
-    { 0 , 0 , 0 , 0},
-    { 0 , 0 , 0 , 0},
-    { 0 , 0 , 0 , 0},
-};
+double Y[4][4];
 // ***** For (3) WRITE YOUR FUNCTION HERE *****
 
 // *****  END YOUR FUNCTION HERE  *****
@@ -45,16 +40,33 @@ int main()
     
     // 1. Create another Array Y with the correct dimensions to hold the result of M*N (see comments above)
     // 2. Write a nested loop to perform a matrix multiplication M*N and store the result in Y
-    double Y[4][4];
-    //Y = M * N
-    unsigned int irow, icol;
-    for (irow = 0; irow<4; irow++){
-        for(icol = 0; icol<4; icol++){
-            Y[irow][icol] = M[irow][icol] + N[irow][icol];
-            displayArray("%3.1f\t", Y[irow][icol]);
-        }
-        displayArray('\n');
-    }
+    int 1Row = 0 , 1Col = 0 , 2Row = 0 , 2Col = 0;
+     int result;
+     int posY = 0, posX = 0;
+     for(int YRow = 0; YRow < 4; YRow ++ ){
+         1Row = posY;
+         posX = 0;
+
+         for(int YCol = 0; YCol < 4 ; YCol ++){
+             2Col = posX;
+             1Col = 0;
+             2Row = 0;
+             result = 0;
+
+             while (2Col < 3){
+                 result = result +(M[1Row][1Col] * N[2Row][2Col]);
+                 1Col++;
+                 2Row++;
+             }
+             y[YRow][YCol] = result;
+             printf("%d\t",result);
+             posx++;
+         }
+         printf("\n");
+         posY++;
+     }
+
+     }
     // 3. Write a function to multiply two matrices together (see comments above). Include some text code to demonstrate it working
 
     // ***** MODIFY THE CODE ABOVE HERE *****
