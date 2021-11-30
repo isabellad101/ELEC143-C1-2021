@@ -42,8 +42,10 @@ int main()
     displayArray(4,3,(double*)M);           //Display in terminal
 
     // ***** MODIFY THE CODE BELOW HERE *****
-
+    
     // 1. Create another Array Y with the correct dimensions to hold the result of M*N (see comments above)
+    
+
 
     // 2. Write a nested loop to perform a matrix multiplication M*N and store the result in Y
 
@@ -55,4 +57,3 @@ int main()
     while (true) {
     }
 }
-
