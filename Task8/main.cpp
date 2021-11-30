@@ -30,7 +30,7 @@ double Y[4][4] = {
     { 0 , 0 , 0 , 0},
     { 0 , 0 , 0 , 0},
     { 0 , 0 , 0 , 0},
-    { 0 , 0 , 0 , 0}
+    { 0 , 0 , 0 , 0},
 };
 // ***** For (3) WRITE YOUR FUNCTION HERE *****
 
@@ -44,11 +44,17 @@ int main()
     // ***** MODIFY THE CODE BELOW HERE *****
     
     // 1. Create another Array Y with the correct dimensions to hold the result of M*N (see comments above)
-    
-
-
     // 2. Write a nested loop to perform a matrix multiplication M*N and store the result in Y
-
+    double Y[4][4];
+    //Y = M * N
+    unsigned int irow, icol;
+    for (irow = 0; irow<4; irow++){
+        for(icol = 0; icol<4; icol++){
+            Y[irow][icol] = M[irow][icol] + N[irow][icol];
+            displayArray("%3.1f\t", Y[irow][icol]);
+        }
+        displayArray('\n');
+    }
     // 3. Write a function to multiply two matrices together (see comments above). Include some text code to demonstrate it working
 
     // ***** MODIFY THE CODE ABOVE HERE *****
