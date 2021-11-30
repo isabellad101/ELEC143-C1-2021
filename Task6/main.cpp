@@ -103,6 +103,7 @@ int main()
             else{}
         }
         // if sequence is correct light led 4 up for 5 seconds 
+        int delaybuzzer = 5000000;
         if(output == 4){
             for(int count = 0; count < 3; count ++){
                 leds = 4;
@@ -116,7 +117,7 @@ int main()
         else{
             leds = !1; // toggle led 1 
              alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
-            wait_us(delay);
+            wait_us(delaybuzzer);
             alarm.rest();
         }
     
