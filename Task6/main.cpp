@@ -71,41 +71,41 @@ int main()
         int input[4];
         int correctSequence[4] = {1 , 2, 3, 4};
 
-        for(int buttonCount = 0; buttonCount < 4; buttonCount ++, wait_us(timeDelay)){
+        for(int buttonPress = 0; buttonPress < 4; buttonPress ++, wait_us(timeDelay)){
             while(SW1 == 0 && SW2 == 0 && SW3 == 0 && SW4 == 0 && SW5 == 0){}
             wait_us(timeDelay);
-            if (SW1 == 1 & SW2 == 1){ // sw1 and sw2 pressed ande released
-                buttons = 1;
+            if ((SW1 == 1) && (SW2 == 1)){ // sw1 and sw2 pressed ande released
+                buttons = 1; //sends to switch case 1
                 leds = 1; // test led 1 should light 
                 switchCase(buttons, input); // goes to switchcase function and carries the two variables
             }
             else if(SW5 == 1){ // sw 5 presses and released
-                buttons = 2;
+                buttons = 2; //sends to switch case 2
                 leds = 2;// test led 2 should light 
                 switchCase(buttons, input); // goes to switchcase function and carries the two variables
             }
             else if(SW4 == 1){ // sw4 pressed and released 
-                buttons = 3;
+                buttons = 3; //sends to switch case 3
                 leds = 3;// tests led 3 should light 
                 switchCase(buttons, input); // goes to switchcase function and carries the two variables
             }
-            else if(SW2 == 1 && SW3 == 1){  // sw2 and sw3 pressed and released
-                buttons = 4;
+            else if((SW2 == 1) && (SW3 == 1)){  // sw2 and sw3 pressed and released
+                buttons = 4; //sends to switch case 4
                 leds = 4; //test led 4 should light 
                 switchCase(buttons, input); // goes to switchcase function and carries the two variables
             }
             
         }
-        for(int count = 0; count < 4; count ++ ){
-            if(input[count] == correctSequence[count]){
-                output ++;
+        for(int count = 0; count < 4; count ++ ){ //count starts at 0 and counts up to 4
+            if(input[count] == correctSequence[count]){ // if the input is the the correct switch case order 
+                output ++;  //output + 1
             }
-            else{}
+            else{} // if not do nothing 
         }
-        // if sequence is correct light led 4 up for 5 seconds 
+        // correct light led 4 up for 5 seconds 
         int delaybuzzer = 5000000;
-        if(output == 4){
-            for(int count = 0; count < 3; count ++){
+        if(output == 4){ // if the output equals 4 
+            for(int count = 0; count < 3; count ++){ // flash green led 3 times with a time delay 
                 leds = 4;
                 wait_us(delay);
                 leds = 0;
@@ -113,9 +113,9 @@ int main()
 
             }
         }
-        // wrong code playing the buzzer for 5 seconds 
-        else{
-            leds = !1; // toggle led 1 
+        // wrong play the buzzer for 5 seconds 
+        else
+            leds = !1; // toggle led 1  
              alarm.playTone("A", Buzzer::HIGHER_OCTAVE);
             wait_us(delaybuzzer);
             alarm.rest();

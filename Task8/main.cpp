@@ -53,11 +53,12 @@ int main()
              NRow = 0;
              result = 0;
 
-             while (NCol < 3){
+             while (MCol < 3){
                  result = result +(M[MRow][MCol] * N[NRow][NCol]);
-                 NCol++;
-                 MRow++;
+                 MCol++;
+                 NRow++;
                 }
+            
             
               Y[YRow][YCol] = result;
               printf("%d\t",result);
