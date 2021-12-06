@@ -40,33 +40,35 @@ int main()
     
     // 1. Create another Array Y with the correct dimensions to hold the result of M*N (see comments above)
     // 2. Write a nested loop to perform a matrix multiplication M*N and store the result in Y
-    int 1Row = 0 , 1Col = 0 , 2Row = 0 , 2Col = 0;
-     int result;
-     int posY = 0, posX = 0;
+    int MRow = 0 ,  MCol = 0 , NRow = 0 , NCol = 0;
+    int result;
+    int posY = 0, posX = 0;
      for(int YRow = 0; YRow < 4; YRow ++ ){
-         1Row = posY;
+         MRow = posY;
          posX = 0;
 
          for(int YCol = 0; YCol < 4 ; YCol ++){
-             2Col = posX;
-             1Col = 0;
-             2Row = 0;
+             NCol = posX;
+             MCol = 0;
+             NRow = 0;
              result = 0;
 
-             while (2Col < 3){
-                 result = result +(M[1Row][1Col] * N[2Row][2Col]);
-                 1Col++;
-                 2Row++;
-             }
-             y[YRow][YCol] = result;
-             printf("%d\t",result);
-             posx++;
-         }
+             while (NCol < 3){
+                 result = result +(M[MRow][MCol] * N[NRow][NCol]);
+                 NCol++;
+                 MRow++;
+                }
+            
+              Y[YRow][YCol] = result;
+              printf("%d\t",result);
+              posX++;
+            }
+         
          printf("\n");
          posY++;
-     }
+    }
 
-     }
+    
     // 3. Write a function to multiply two matrices together (see comments above). Include some text code to demonstrate it working
 
     // ***** MODIFY THE CODE ABOVE HERE *****

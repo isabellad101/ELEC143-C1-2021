@@ -37,7 +37,7 @@ int main()
         }
     }
     // 4. Wait for either sw1 or sw2 to be released
-      while(sw1==1){
+      while((sw1==1)||(sw2==1)){
           while(sw2==1){
           wait_us(500000);
           }
